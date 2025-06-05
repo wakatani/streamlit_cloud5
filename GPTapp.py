@@ -180,7 +180,7 @@ if st.button('解答 (answer)'):
     b[1]="２：{0}".format(quiz_response["選択肢２"])
     b[2]="３：{0}".format(quiz_response["選択肢３"])
     b[3]="４：{0}".format(quiz_response["選択肢４"])
-    ans ="答えは{0}です (The answer is {0}) [Ratio={1:0.2f}％]".format(quiz_response["答え"],ratio)
+    ans ="答えは{0}です (The answer is {0}) [score={1:0.2f}％ ({2}/{3})]".format(quiz_response["答え"],ratio,st.session_state['total_correct'],st.session_state['total_prob'])
     expl="  [ {0} ]".format(explanation)
     st.write(ans)
     st.write(expl)
