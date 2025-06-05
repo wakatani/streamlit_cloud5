@@ -12,8 +12,32 @@ import streamlit as st
 #load_dotenv()
 
 def translateE(source):
-  result=source
-  return result
+  response1 = client.chat.completions.create(
+    model="gpt-4o-2024-08-06",
+    temperature=0.8,
+    messages=[
+      {"role": "system",\
+               "content":"あなたは日本語から英語に翻訳する翻訳家です"},
+      {"role": "user",\
+               "content": "「{0}」を英文にしてください。",format(source)}],
+    response_format={
+        "type": "json_schema",
+        "json_schema": {
+            "name": "english",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "英文": {"type": "string"},
+                },
+                "required": ["英文"],
+                "additionalProperties": False,
+            },
+            "strict": True,
+        },
+    },
+  )
+  english_response = json.loads(response1.choices[0].message.content)
+  return english_response['英文']
 
 #
 # APIキーは環境変数にセットしておく
