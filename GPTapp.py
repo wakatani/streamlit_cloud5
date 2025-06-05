@@ -107,9 +107,12 @@ if st.button('問題 (quiz)'):
   st.session_state['expl'] = explanation
 
 if 'quiz' in st.session_state:
-  quiz_response=st.session_state['quiz']
-  explanation=st.session_state['expl'] 
+
   msg=quiz_response
+  prob=quiz_response["問題文"]
+  code="{0}".format(quiz_response["Pythonコード"])
+  explanation=st.session_state['expl']
+
   b[0]="１：{0}".format(quiz_response["選択肢１"])
   b[1]="２：{0}".format(quiz_response["選択肢２"])
   b[2]="３：{0}".format(quiz_response["選択肢３"])
@@ -120,13 +123,16 @@ if 'quiz' in st.session_state:
   counter=st.session_state['counter']
   msg="-----------------------------------------------------{0}".format(counter)
   st.write(msg)
-  msg="正しいものを選べ (Choose the correct answer)"
+  msg=prob
+  st.write(msg)
+  msg=code
+  st.code(msg)
+  msg="次の選択肢から正しいものを選べ (Choose the correct one)"
   st.write(msg)
   for i in range(4):
     st.write(b[i])
   msg="-----------------------------------------------------"
   st.write(msg)
-
   st.session_state['counter'] += 1
 
 
