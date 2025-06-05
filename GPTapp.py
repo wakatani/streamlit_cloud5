@@ -163,7 +163,8 @@ if st.button('解答 (answer)'):
       st.write("間違いでした (incorrect)")
     st.write("--------------")
 
-    ratio=100.0*int(st.session_state['total_correct'])/int(st.session_state['total_prob'])
+    #ratio=100.0*int(st.session_state['total_correct'])/int(st.session_state['total_prob'])
+    ratio=10.0
     b[0]="１：{0}".format(quiz_response["選択肢１"])
     b[1]="２：{0}".format(quiz_response["選択肢２"])
     b[2]="３：{0}".format(quiz_response["選択肢３"])
