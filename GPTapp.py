@@ -35,8 +35,8 @@ else:
 # 問題作成の元になる文章群
 #
 explanationList=[
-    "scikit-learnでLasso回帰を使う場合は、Lasso関数を用います。オプションのαで正則化を制御します。",
-    "scikit-learnでRidge回帰を使う場合は、Ridge関数を用います。オプションのαで正則化を制御します。",
+    "scikit-learnでLasso回帰を使う場合は、Lasso関数を用います。alphaオプションで正則化を制御します。fitメソッドとpredictメソッドが使われます。モデルはintercept_属性と、coef_属性にで示されます。",
+    "scikit-learnでRidge回帰を使う場合は、Ridge関数を用います。alphaオプションで正則化を制御します。fitメソッドとpredictメソッドが使われます。モデルはintercept_属性と、coef_属性にで示されます。",
     "scikit-learnで線形回帰を使う場合は、LinearRegression関数を用います。fitメソッドとpredictメソッドが使われます。モデルはintercept_属性と、coef_属性にで示されます。"
 ]
 
