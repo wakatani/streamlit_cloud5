@@ -18,7 +18,7 @@ client = OpenAI()
 
 #
 
-st.title("■■■ クイズのコーナー1 ■■■")
+st.title("■ Let's study scikit-learn ■")
 
 lang = st.radio(label='言語選択 (language)',
                  options=('Japanese', 'English'),
@@ -52,7 +52,7 @@ if 'counter' not in st.session_state:
 
 counter=st.session_state['counter']
 
-if st.button('問題'):
+if st.button('問題 (quiz)'):
   print("XXXX ",counter)
 #
 # 文章群から文章をランダムに選ぶ
@@ -106,7 +106,7 @@ if 'quiz' in st.session_state:
   counter=st.session_state['counter']
   msg="-----------------------------------------------------{0}".format(counter)
   st.write(msg)
-  msg="次の選択肢から正しいものを選べ"
+  msg="正しいものを選べ (choose the correct answer)"
   st.write(msg)
   for i in range(4):
     st.write(b[i])
@@ -154,7 +154,7 @@ def ANS():
     st.write('まず「問題」を押してください')
 
 answer= st.radio(
-    "Your answer is ",
+    "答えは？ (Your answer is )",
     ["１", "２", "３", "４"],
     horizontal=True,
     index=None,
@@ -166,9 +166,9 @@ if st.button('答え'):
     explanation=st.session_state['expl']
   
     if int(answer)==int(quiz_response["答え"]):
-      st.write("正解でした")
+      st.write("正解でした (correct)")
     else:
-      st.write("間違いでした")
+      st.write("間違いでした (incorrect)")
     st.write("--------------")
       
     b[0]="１：{0}".format(quiz_response["選択肢１"])
@@ -185,7 +185,7 @@ if st.button('答え'):
 #      st.write(b[i])
 #    msg="-----------------------------------------------------"
 #    st.write(msg)
-    msg="◇◇◇ 次の問題は「問題」を押してください"
+    msg="◇◇◇ 次の問題は「問題」を押してください (Click quiz, again)"
     st.write(msg)
 
   except:
