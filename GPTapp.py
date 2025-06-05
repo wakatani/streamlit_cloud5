@@ -146,10 +146,10 @@ answer= st.radio(
 
 if st.button('解答 (answer)'):
   try:
-    #if total_prob not in st.session_state:
-    #  st.session_state['total_prob']=0
-    #if total_correct not in st.session_state:
-    #  st.session_state['total_correct']=0
+    if total_prob not in st.session_state:
+      st.session_state['total_prob']=0
+    if total_correct not in st.session_state:
+      st.session_state['total_correct']=0
 
     quiz_response=st.session_state['quiz']
     explanation=st.session_state['expl']
@@ -171,7 +171,8 @@ if st.button('解答 (answer)'):
     b[3]="４：{0}".format(quiz_response["選択肢４"])
     ans ="答えは{0}です (The answer is {0}) [Ratio={1:0.2f}％]".format(quiz_response["答え"],ratio)
     expl="  [ {0} ]".format(explanation)
-    st.write(ans,expl)
+    st.write(ans)
+    st.write(expl)
     counter=st.session_state['counter']
 #    msg="-----------------------------------------------------"
 #    st.write(msg)
