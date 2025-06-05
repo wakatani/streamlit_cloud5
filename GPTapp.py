@@ -19,7 +19,7 @@ def translateE(source):
       {"role": "system",\
                "content":"あなたは日本語から英語に翻訳する翻訳家です"},
       {"role": "user",\
-               "content": "「{0}」を英文にしてください。",format(source)}],
+               "content": "「{0}」を英文にしてください。".format(source)}],
     response_format={
         "type": "json_schema",
         "json_schema": {
