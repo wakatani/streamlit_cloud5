@@ -154,13 +154,13 @@ def ANS():
     st.write('まず「問題」を押してください')
 
 answer= st.radio(
-    "答えは？ (Your answer is )",
+    "答えは？ (What is your answer ?)",
     ["１", "２", "３", "４"],
     horizontal=True,
     index=None,
 )
 
-if st.button('答え'):
+if st.button('解答 (answer)'):
   try:
     quiz_response=st.session_state['quiz']
     explanation=st.session_state['expl']
