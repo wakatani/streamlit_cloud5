@@ -11,6 +11,10 @@ import streamlit as st
 
 #load_dotenv()
 
+def translateE(source):
+  result=source
+  return result
+
 #
 # APIキーは環境変数にセットしておく
 #
@@ -72,7 +76,9 @@ if st.button('問題 (quiz)'):
 
   explanation=explanationList[int(random.random()*len(explanationList))]
   probtype   =probtypeList[int(random.random()*len(probtypeList))]
-
+  if language =='英語':
+    explanation = translateE(explanation)
+  
   prompt ="「{0}」の文章に関して、Pythonの4択問題を考えます。".format(explanation)
   prompt+="問題のPythonコードと問題文と、4個の選択肢の文言とその答の番号を示せ。"
   prompt+="選択肢の文言は選択肢の番号は不要である。"
