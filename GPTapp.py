@@ -89,7 +89,7 @@ if st.button('問題 (quiz)'):
       {"role": "system",\
                "content":"あなたは機械学習の専門家です。知っている知識を駆使して初心者向けの機械学習の学習のための問題を作ります。"},
       {"role": "user",\
-               "content": prompt},
+               "content": prompt}],
     response_format={
         "type": "json_schema",
         "json_schema": {
