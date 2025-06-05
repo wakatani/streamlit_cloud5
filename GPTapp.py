@@ -37,11 +37,13 @@ else:
 explanationList=[
     "scikit-learnでLasso回帰を使う場合は、Lasso関数を用います。オプションのαで正則化を制御します。",
     "scikit-learnでRidge回帰を使う場合は、Ridge関数を用います。オプションのαで正則化を制御します。",
-    "scikit-learnで線形回帰を使う場合は、LinearRegression関数を用います。オプションのαで正則化を制御します。"
+    "scikit-learnで線形回帰を使う場合は、LinearRegression関数を用います。fitメソッドとpredictメソッドが使われます。モデルはintercept_属性と、coef_属性にで示されます。"
 ]
 
 probtypeList=[
     "関数の名前を問うようにしろ。",
+    "属性について問うようにしろ。",
+    "メソッドについて問うようにしろ。",
     "オプションの値の大小について問うようにしろ。",
     "オプションについて問うようにしろ。",
     "Numpyと組み合せるようにしろ。",
