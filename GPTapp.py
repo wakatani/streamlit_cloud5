@@ -35,9 +35,9 @@ else:
 # 問題作成の元になる文章群
 #
 explanationList=[
-    "scikit-learnでLasso回帰を使う場合は、Lasso関数を用います。",
-    "scikit-learnでRidge回帰を使う場合は、Ridge関数を用います。",
-    "scikit-learnで線形回帰を使う場合は、LinearRegression関数を用います。"
+    "scikit-learnでLasso回帰を使う場合は、Lasso関数を用います。オプションのαで正則化を制御します。",
+    "scikit-learnでRidge回帰を使う場合は、Ridge関数を用います。オプションのαで正則化を制御します。",
+    "scikit-learnで線形回帰を使う場合は、LinearRegression関数を用います。オプションのαで正則化を制御します。"
 ]
 
 probtypeList=[
@@ -78,7 +78,7 @@ if st.button('問題 (quiz)'):
   prompt+="また、Pythonコードではデータの初期化をすること。"
   prompt+="「{0}」を守ること。".format(probtype)
   prompt+="正解の選択肢以外の選択肢の文言は間違っているようにすること。"
-  prompt+="{0}で。".format(language)
+  prompt+="言語は{0}を用いること。".format(language)
 
 # "「{0}」の文章に関して、Pythonの4択問題を考えます。問題にはPythonコードの一部を穴埋めする問題とします。問題のPythonコードと問題文と、4個の選択肢の文言とその答の番号を示せ。選択肢の文言は選択肢の番号は不要である。また、Pythonコードは改行をつけること。また、Pythonコードではデータの初期化をすること。「{1}」を守ること。正解の選択肢以外の選択肢の文言は間違っているようにすること。{2}で。".format(explanation,probtype,language)}],
   
