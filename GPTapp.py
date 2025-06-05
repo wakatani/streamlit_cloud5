@@ -54,24 +54,6 @@ ans=""
 expl=""
   
 
-#
-# 問題作成の元になる文章群
-#
-explanationList=[
-    "東灘区にある阪神電鉄の駅は、深江、青木、魚崎、住吉、御影、石屋川です",
-    "東灘区にある阪急電鉄の駅は、岡本、御影です",
-    "コンパイラのフロントエンド部分には字句解析と構文解析が含まれます",
-    "C言語はコンパイラ言語ですが、Python言語はインタプリタ言語です",
-    "BNFで文法を表現する場合、終端記号と非終端記号が使われる",
-    "LLパーザを用いた構文解析が利用できる文法は左再帰を含みません",
-    "コンパイラ言語は高速ですが、インタプリタ言語は遅いです"
-]
-
-quiz_response="NONE"
-b=["","","",""]
-ans=""
-expl=""
-
 if 'counter' not in st.session_state:
   st.session_state['counter'] = 0
 
@@ -79,19 +61,24 @@ counter=st.session_state['counter']
 
 if st.button('問題 (quiz)'):
   print("XXXX ",counter)
+
+
 #
 # 文章群から文章をランダムに選ぶ
 #
+  st.session_state['counter'] += 1
+
   explanation=explanationList[int(random.random()*len(explanationList))]
+  probtype   =probtypeList[int(random.random()*len(probtypeList))]
 
   response1 = client.chat.completions.create(
     model="gpt-4o-2024-08-06",
     temperature=0.8,
     messages=[
       {"role": "system",\
-               "content":"あなたはクイズ出題者です。知っている知識を駆使して問題を作ります。"},
+               "content":"あなたは機械学習の専門家です。知っている知識を駆使して初心者向けの機械学習の学習のための問題を作ります。"},
       {"role": "user",\
-               "content": "「{0}」の文章に関する4択問題の4個の選択肢の文言とその答の番号を示せ。選択肢の文言は選択肢の番号は不要である。正解の選択肢以外の選択肢の文言は間違っているようにすること。正解の選択肢の番号はランダムにすること。言語は{1}で。".format(explanation,language)}],
+               "content": "「{0}」の文章に関して、Pythonの4択問題を考えます。問題にはPythonコードの一部を穴埋めする問題とします。問題のPythonコードと問題文と、4個の選択肢の文言とその答の番号を示せ。選択肢の文言は選択肢の番号は不要である。また、Pythonコードは改行をつけること。また、Pythonコードではデータの初期化をすること。「{1}」を守ること。正解の選択肢以外の選択肢の文言は間違っているようにすること。{2}で。".format(explanation,probtype,language)}],
     response_format={
         "type": "json_schema",
         "json_schema": {
@@ -99,13 +86,15 @@ if st.button('問題 (quiz)'):
             "schema": {
                 "type": "object",
                 "properties": {
+                    "問題文": {"type": "string"},
+                    "Pythonコード": {"type": "string"},
                     "選択肢１": {"type": "string"},
                     "選択肢２": {"type": "string"},
                     "選択肢３": {"type": "string"},
                     "選択肢４": {"type": "string"},
                     "答え": {"type": "number"},
                 },
-                "required": ["選択肢１", "選択肢２", "選択肢３", "選択肢４","答え"],
+                "required": ["問題文","Pythonコード","選択肢１", "選択肢２", "選択肢３", "選択肢４","答え"],
                 "additionalProperties": False,
             },
             "strict": True,
