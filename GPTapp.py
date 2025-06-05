@@ -49,9 +49,9 @@ client = OpenAI()
 st.title("■ Let's study scikit-learn ■")
 
 lang = st.radio(label='言語選択 (language)',
-                 options=('Japanese', 'English'),
-                 index=0,
-                 horizontal=True,
+                options=('Japanese', 'English'),
+                index=0,
+                horizontal=True,
 )
 if lang=="Japanese":
   language="日本語"
@@ -89,7 +89,7 @@ if 'counter' not in st.session_state:
 
 counter=st.session_state['counter']
 
-if st.button('問題 (quiz)'):
+if st.button('問題 (quiz)',type="primary"):
   print("XXXX ",counter)
 
 
@@ -187,7 +187,7 @@ answer= st.radio(
     index=None,
 )
 
-if st.button('解答 (answer)'):
+if st.button('解答 (answer)',type="primary"):
   try:
     if 'total_prob' not in st.session_state:
       st.session_state['total_prob']=0
