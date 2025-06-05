@@ -108,10 +108,11 @@ if st.button('問題 (quiz)'):
 
 if 'quiz' in st.session_state:
 
+  quiz_response=st.session_state['quiz']
+  explanation=st.session_state['expl']
   msg=quiz_response
   prob=quiz_response["問題文"]
   code="{0}".format(quiz_response["Pythonコード"])
-  explanation=st.session_state['expl']
 
   b[0]="１：{0}".format(quiz_response["選択肢１"])
   b[1]="２：{0}".format(quiz_response["選択肢２"])
