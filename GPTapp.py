@@ -106,7 +106,7 @@ if 'quiz' in st.session_state:
   counter=st.session_state['counter']
   msg="-----------------------------------------------------{0}".format(counter)
   st.write(msg)
-  msg="正しいものを選べ (choose the correct answer)"
+  msg="正しいものを選べ (Choose the correct answer)"
   st.write(msg)
   for i in range(4):
     st.write(b[i])
@@ -115,43 +115,6 @@ if 'quiz' in st.session_state:
 
   st.session_state['counter'] += 1
 
-
-def ANS():
-  try:
-    quiz_response=st.session_state['quiz']
-    explanation=st.session_state['expl']
-
-    st.write("Your answer is ",int(answer))
-    st.write("Real answer is ",int(quiz_response["答え"]))
-                 
-  
-    if int(answer)==int(quiz_response["答え"]):
-      st.write("正解でした")
-    else:
-      st.write("間違いでした")
-    st.write("--------------")
-
-    b[0]="１：{0}".format(quiz_response["選択肢１"])
-    b[1]="２：{0}".format(quiz_response["選択肢２"])
-    b[2]="３：{0}".format(quiz_response["選択肢３"])
-    b[3]="４：{0}".format(quiz_response["選択肢４"])
-    ans ="答えは{0}です。".format(quiz_response["答え"])
-    expl="  [ {0} ]".format(explanation)
-    st.write(ans,expl)
-    counter=st.session_state['counter']
-#    msg="-----------------------------------------------------{0}".format(counter)
-#    st.write(msg)
-#    for i in range(4):
-#      st.write(b[i])
-#    msg="-----------------------------------------------------"
-#    st.write(msg)
-    msg="◇◇◇ 次の問題は「問題」を押してください"
-    st.write(msg)
-
-    st.session_state['counter'] += 1
-    
-  except:
-    st.write('まず「問題」を押してください')
 
 answer= st.radio(
     "答えは？ (What is your answer ?)",
