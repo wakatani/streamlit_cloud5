@@ -15,7 +15,7 @@ def translateE(source,model):
   response1 = client.chat.completions.create(
     #model="gpt-4o-2024-08-06",
     model=model,
-    temperature=0.8,
+    #temperature=0.8,
     messages=[
       {"role": "system",\
                "content":"あなたは日本語から英語に翻訳する翻訳家です"},
