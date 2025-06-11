@@ -50,7 +50,7 @@ client = OpenAI()
 st.title("■ Let's study scikit-learn ■")
 st.write("[powered by Konan digital-twin lab.]")
 
-lang = st.radio(label='言語選択 (language)',
+lang = st.radio(label='★言語選択 (language)',
                 options=('Japanese', 'English'),
                 index=0,
                 horizontal=True,
@@ -61,7 +61,7 @@ else:
   language="英語"
 
 #model="gpt-4o-2024-08-06"
-model = st.radio(label='モデル選択 (model)',
+model = st.radio(label='★モデル選択 (model)',
                  options=('gpt-4o', 'gpt-4o-mini', 'gpt-4.5-preview','o1','o1-mini','o3','o3-mini'),
                 index=0,
                 horizontal=True,
