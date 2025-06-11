@@ -127,7 +127,7 @@ if st.button('問題 (quiz)',type="primary"):
   response1 = client.chat.completions.create(
     #model="gpt-4o-2024-08-06",
     model=model,
-    temperature=0.8,
+    #temperature=0.8,
     messages=[
       {"role": "system",\
                "content":"あなたは機械学習の専門家です。知っている知識を駆使して初心者向けの機械学習の学習のための問題を作ります。"},
