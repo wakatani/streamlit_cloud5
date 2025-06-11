@@ -59,17 +59,8 @@ if lang=="Japanese":
 else:
   language="英語"
 
-'''
-gpt-4.5-preview
-gpt-4o
-gpt-4o-mini
-o1
-o1-mini
-o3-mini
-o3
-'''
 #model="gpt-4o-2024-08-06"
-model = st.radio(label='model',
+model = st.radio(label='モデル選択 (model)',
                 options=('gpt-4o', 'gpt-4o-mini', 'gpt-4.5-preview'
                          'o1','o1-mini','o3','o3-mini'),
                 index=0,
