@@ -11,9 +11,10 @@ import streamlit as st
 
 #load_dotenv()
 
-def translateE(source):
+def translateE(source,model):
   response1 = client.chat.completions.create(
-    model="gpt-4o-2024-08-06",
+    #model="gpt-4o-2024-08-06",
+    model=model,
     temperature=0.8,
     messages=[
       {"role": "system",\
@@ -58,7 +59,8 @@ if lang=="Japanese":
 else:
   language="英語"
 
-
+model="gpt-4o-2024-08-06"
+  
 #
 # 問題作成の元になる文章群
 #
@@ -101,7 +103,7 @@ if st.button('問題 (quiz)',type="primary"):
   explanation=explanationList[int(random.random()*len(explanationList))]
   probtype   =probtypeList[int(random.random()*len(probtypeList))]
   if language =='英語':
-    explanation = translateE(explanation)
+    explanation = translateE(explanation,model)
   
   prompt ="「{0}」の文章に関して、Pythonの4択問題を考えます。".format(explanation)
   prompt+="問題のPythonコードと問題文と、4個の選択肢の文言とその答の番号を示せ。"
@@ -115,7 +117,8 @@ if st.button('問題 (quiz)',type="primary"):
 # "「{0}」の文章に関して、Pythonの4択問題を考えます。問題にはPythonコードの一部を穴埋めする問題とします。問題のPythonコードと問題文と、4個の選択肢の文言とその答の番号を示せ。選択肢の文言は選択肢の番号は不要である。また、Pythonコードは改行をつけること。また、Pythonコードではデータの初期化をすること。「{1}」を守ること。正解の選択肢以外の選択肢の文言は間違っているようにすること。{2}で。".format(explanation,probtype,language)}],
   
   response1 = client.chat.completions.create(
-    model="gpt-4o-2024-08-06",
+    #model="gpt-4o-2024-08-06",
+    model=model,
     temperature=0.8,
     messages=[
       {"role": "system",\
