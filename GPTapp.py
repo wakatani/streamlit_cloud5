@@ -66,7 +66,23 @@ model = st.radio(label='★モデル選択 (model)',
                 index=0,
                 horizontal=True,
 )
+promptP = st.radio(label='★プロンプト',
+                   options=('A','B','C','D','AE','BE','CE','DE')
+                   index=0,
+                   horizontal=True,
+)
 
+prompt_texts={
+  'A':"1111",
+  'B':"2222",
+  'C':"3333",
+  'D':"4444",
+  'AE':"E1111",
+  'BE':"E2222",
+  'CE':"E3333",
+  'DE':"E4444",
+}
+st.write("Prompt:",prompt_texts[promptP})
 
 
 
