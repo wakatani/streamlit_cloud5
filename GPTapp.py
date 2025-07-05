@@ -114,8 +114,8 @@ if st.button('問題 (quiz)',type="primary"):
   if language =='英語':
     explanation = translateE(explanation,model)
   
-  prompt ="「{0}」の文章に関して、Pythonの4択問題を考えます。".format(explanation)
-  prompt+="その4択問題は、Pythonコードの一部を空欄にした穴埋め問題にします。"
+  prompt ="「{0}」の文章に関して、Pythonコードの一箇所を空欄にした穴埋め問題を考えます。".format(explanation)
+  prompt+="さらに、問題は4択問題にします。"
   prompt+="問題のPythonコードと問題文と、4個の選択肢の文言とその答の番号を示せ。"
   prompt+="選択肢の文言は選択肢の番号は不要である。"
   prompt+="また、Pythonコードは改行をつけること。"
