@@ -77,10 +77,10 @@ prompt_texts={
   'B':"Pythonプログラムの一部を空欄にし、その内容を問う4択問題を作成する。",
   'C':"問題は4択問題とし、問題はPythonプログラムの一部を空欄にし、その内容を問うものである。ただし問題文にはPythonプログラムは含まない。",
   'D':"Pythonプログラムの一部を空欄にし、その内容を問う4択問題を作成する。ただし問題文にはPythonプログラムは含まない。",
-  'AE':"E1111",
-  'BE':"E2222",
-  'CE':"E3333",
-  'DE':"E4444",
+  'AE':"The questions are four-choice questions, and the questions ask for the content of a Python program, leaving a portion of the program blank.",
+  'BE':"Create a four-choice question that leaves part of a Python program blank and asks what to put in the blank.",
+  'CE':"The question should be a four-choice question, and the question should show a Python program with a part of the program blank and ask what should be placed in the blank. However, the question text does not include the Python program.",
+  'DE':"Create a four-choice question that leaves part of a Python program blank and asks what to put in the blank. However, do not include the Python program in the question text.",
 }
 st.write("Prompt:",prompt_texts[promptP])
 
