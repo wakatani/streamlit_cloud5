@@ -82,7 +82,7 @@ prompt_texts={
   'CE':"E3333",
   'DE':"E4444",
 }
-st.write("Prompt:",prompt_texts[promptP})
+st.write("Prompt:",prompt_texts[promptP])
 
 
 
