@@ -67,7 +67,7 @@ model = st.radio(label='★モデル選択 (model)',
                 horizontal=True,
 )
 promptP = st.radio(label='★プロンプト',
-                   options=('A','B','C','D','AE','BE','CE','DE')
+                   options=('A','B','C','D','AE','BE','CE','DE'),
                    index=0,
                    horizontal=True,
 )
