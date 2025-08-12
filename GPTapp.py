@@ -8,6 +8,7 @@ import os
 import random
 import copy
 import streamlit as st
+import time
 
 #load_dotenv()
 
@@ -141,7 +142,8 @@ if st.button('問題 (quiz)',type="primary"):
   prompt+="言語は{0}を用いること。".format(language)
 
 # "「{0}」の文章に関して、Pythonの4択問題を考えます。問題にはPythonコードの一部を穴埋めする問題とします。問題のPythonコードと問題文と、4個の選択肢の文言とその答の番号を示せ。選択肢の文言は選択肢の番号は不要である。また、Pythonコードは改行をつけること。また、Pythonコードではデータの初期化をすること。「{1}」を守ること。正解の選択肢以外の選択肢の文言は間違っているようにすること。{2}で。".format(explanation,probtype,language)}],
-  
+
+  start_t=time.time()
   response1 = client.chat.completions.create(
     #model="gpt-4o-2024-08-06",
     model=model,
@@ -173,6 +175,7 @@ if st.button('問題 (quiz)',type="primary"):
         },
     },
   )
+  end_t=time.time()
 
   quiz_response = json.loads(response1.choices[0].message.content)
   st.session_state['quiz'] = quiz_response
@@ -194,7 +197,7 @@ if 'quiz' in st.session_state:
   expl="  [ {0} ]".format(explanation)
 
   counter=st.session_state['counter']
-  msg="-----------------------------------------------------{0}".format(counter)
+  msg="-----------------------------------------------------{0},{1}".format(counter,end_t-start_t)
   st.write(msg)
   msg=prob
   st.write(msg)
