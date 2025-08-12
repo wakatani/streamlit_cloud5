@@ -180,11 +180,13 @@ if st.button('問題 (quiz)',type="primary"):
   quiz_response = json.loads(response1.choices[0].message.content)
   st.session_state['quiz'] = quiz_response
   st.session_state['expl'] = explanation
+  st.session_state['time'] = end_t-start_t
 
 if 'quiz' in st.session_state:
 
   quiz_response=st.session_state['quiz']
   explanation=st.session_state['expl']
+  time_e=st.session_state['time']
   msg=quiz_response
   prob=quiz_response["問題文"]
   code="{0}".format(quiz_response["Pythonコード"])
@@ -197,7 +199,7 @@ if 'quiz' in st.session_state:
   expl="  [ {0} ]".format(explanation)
 
   counter=st.session_state['counter']
-  msg="-----------------------------------------------------{0}".format(counter)
+  msg="-----------------------------------------------------{0},{1}".format(counter,time_e)
   st.write(msg)
   msg=prob
   st.write(msg)
