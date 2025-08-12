@@ -114,6 +114,8 @@ expl=""
 
 if 'counter' not in st.session_state:
   st.session_state['counter'] = 0
+if 'time' not in st.session_state:
+  st.session_state['time'] = 0
 
 counter=st.session_state['counter']
 
