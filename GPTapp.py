@@ -197,7 +197,7 @@ if 'quiz' in st.session_state:
   expl="  [ {0} ]".format(explanation)
 
   counter=st.session_state['counter']
-  msg="-----------------------------------------------------{0},{1}".format(counter,end_t-start_t)
+  msg="-----------------------------------------------------{0}".format(counter)
   st.write(msg)
   msg=prob
   st.write(msg)
