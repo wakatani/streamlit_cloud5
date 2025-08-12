@@ -49,7 +49,7 @@ client = OpenAI()
 #
 
 st.title("■ Let's study scikit-learn ■")
-st.write("[powered by Konan digital-twin lab.]")
+st.write("[supported by Konan digital-twin lab.]")
 
 lang = st.radio(label='★言語選択 (language)',
                 options=('Japanese', 'English'),
