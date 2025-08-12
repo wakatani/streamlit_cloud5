@@ -62,7 +62,7 @@ else:
 
 #model="gpt-4o-2024-08-06"
 model = st.radio(label='★モデル選択 (model)',
-                 options=('gpt-4o', 'gpt-4o-mini', 'gpt-4.1','o1','o1-mini','o3','o3-mini'),
+                 options=('gpt-4o', 'gpt-4o-mini', 'gpt-4.1','gpt-5','o1','o1-mini','o3','o3-mini'),
                 index=0,
                 horizontal=True,
 )
