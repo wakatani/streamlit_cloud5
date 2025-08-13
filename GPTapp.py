@@ -183,7 +183,7 @@ if st.button('問題 (quiz)',type="primary"):
 
   # 人工的に入れ換え(2025/8/13)
   ans_v=quiz_response["答え"]
-  tgt_v=(ans_v+random.randint(1,4))%4
+  tgt_v=(ans_v+random.randint(1,4))%4+1
   if ans_v==1:
     ans_st=quiz_response["選択肢１"]
   elif ans_v==2:
