@@ -184,8 +184,24 @@ if st.button('問題 (quiz)',type="primary"):
   # 人工的に入れ換え(2025/8/13)
   ans_v=quiz_response["答え"]
   tgt_v=(ans_v+random.randint(1,4))%4+1
-  ansl="選択肢"+ans_v
-  tgtl="選択肢"+tgt_v
+  if ans_v==1:
+    ans_n="１"
+  elif ans_v==2:
+    ans_n="２"
+  elif ans_v==3:
+    ans_n="３"
+  elif ans_v==4:
+    ans_n="４"
+  if tgt_v==1:
+    tgt_n="１"
+  elif tgt_v==2:
+    tgt_n="２"
+  elif tgt_v==3:
+    tgt_n="３"
+  elif tgt_v==4:
+    tgt_n="４"
+  ansl="選択肢"+ans_n
+  tgtl="選択肢"+tgt_n
   tmp_st=quiz_response[ansl]
   quiz_response[ansl]=quiz_response[tgtl]
   quiz_response[tgtl]=tmp_st
