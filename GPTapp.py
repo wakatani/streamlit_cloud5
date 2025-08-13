@@ -180,9 +180,30 @@ if st.button('問題 (quiz)',type="primary"):
   end_t=time.time()
 
   quiz_response = json.loads(response1.choices[0].message.content)
+
   # 人工的に入れ換え(2025/8/13)
   ans_v=quiz_response["答え"]
   tgt_v=(ans_v+random.randint(1,4))%4
+  if ans_v==1:
+    ans_st=quiz_response["選択肢１"]
+  elif ans_v==2:
+    ans_st=quiz_response["選択肢２"]
+  elif ans_v==3:
+    ans_st=quiz_response["選択肢３"]
+  elif ans_v==4:
+    ans_st=quiz_response["選択肢４"]
+  if tgt_v==1:
+    tgt_st=quiz_response["選択肢１"]
+  elif tgt_v==2:
+    tgt_st=quiz_response["選択肢２"]
+  elif tgt_v==3:
+    tgt_st=quiz_response["選択肢３"]
+  elif tgt_v==4:
+    tgt_st=quiz_response["選択肢４"]
+  tmp_st=tgt_st
+  tgt_st=ans_st
+  ans_st=tmp_st
+  quiz_response["答え"]=tgt_v
   
   st.session_state['quiz'] = quiz_response
   st.session_state['expl'] = explanation
