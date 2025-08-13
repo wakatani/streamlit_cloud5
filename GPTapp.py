@@ -180,6 +180,10 @@ if st.button('問題 (quiz)',type="primary"):
   end_t=time.time()
 
   quiz_response = json.loads(response1.choices[0].message.content)
+  # 人工的に入れ換え(2025/8/13)
+  ans_v=quiz_response["答え"]
+  tgt_v=(ans_v+random.randint(1,4))%4
+  
   st.session_state['quiz'] = quiz_response
   st.session_state['expl'] = explanation
   st.session_state['time'] = end_t-start_t
