@@ -61,6 +61,12 @@ if lang=="Japanese":
 else:
   language="英語"
 
+AnsC = st.radio(label='★正解調整 (Answer control)',
+                options=('Yes', 'No'),
+                index=0,
+                horizontal=True,
+)
+  
 #model="gpt-4o-2024-08-06"
 model = st.radio(label='★モデル選択 (model)',
                  options=('gpt-4o', 'gpt-4o-mini', 'gpt-4.1','gpt-5','o1','o1-mini','o3','o3-mini'),
@@ -181,31 +187,32 @@ if st.button('問題 (quiz)',type="primary"):
 
   quiz_response = json.loads(response1.choices[0].message.content)
 
-  # 人工的に入れ換え(2025/8/13)
-  ans_v=quiz_response["答え"]
-  tgt_v=(ans_v+random.randint(1,4))%4+1
-  if ans_v==1:
-    ans_n="１"
-  elif ans_v==2:
-    ans_n="２"
-  elif ans_v==3:
-    ans_n="３"
-  elif ans_v==4:
-    ans_n="４"
-  if tgt_v==1:
-    tgt_n="１"
-  elif tgt_v==2:
-    tgt_n="２"
-  elif tgt_v==3:
-    tgt_n="３"
-  elif tgt_v==4:
-    tgt_n="４"
-  ansl="選択肢"+ans_n
-  tgtl="選択肢"+tgt_n
-  tmp_st=quiz_response[ansl]
-  quiz_response[ansl]=quiz_response[tgtl]
-  quiz_response[tgtl]=tmp_st
-  quiz_response["答え"]=tgt_v
+  # 正解が1が多いので、人工的に選択肢を入れ換えるように改良(2025/8/13)
+  if AnsC=="Yes":
+    ans_v=quiz_response["答え"]
+    tgt_v=(ans_v+random.randint(1,4))%4+1
+    if ans_v==1:
+      ans_n="１"
+    elif ans_v==2:
+      ans_n="２"
+    elif ans_v==3:
+      ans_n="３"
+    elif ans_v==4:
+      ans_n="４"
+    if tgt_v==1:
+      tgt_n="１"
+    elif tgt_v==2:
+      tgt_n="２"
+    elif tgt_v==3:
+      tgt_n="３"
+    elif tgt_v==4:
+      tgt_n="４"
+    ansl="選択肢"+ans_n
+    tgtl="選択肢"+tgt_n
+    tmp_st=quiz_response[ansl]
+    quiz_response[ansl]=quiz_response[tgtl]
+    quiz_response[tgtl]=tmp_st
+    quiz_response["答え"]=tgt_v
   
   st.session_state['quiz'] = quiz_response
   st.session_state['expl'] = explanation
