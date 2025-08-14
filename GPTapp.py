@@ -82,7 +82,7 @@ promptP = st.radio(label='★プロンプト',
 prompt_texts={
   'A':"問題は4択問題とし、問題はPythonプログラムの一部を空欄にし、その内容を問うものである。解答となる選択肢は、できるだけ1番目にならないようにせよ。",
   'B':"Pythonプログラムの一部を空欄にし、その内容を問う4択問題を作成する。",
-  'C':"問題は4択問題とし、問題はPythonプログラムの一部を空欄にし、その内容を問うものである。解答となる選択肢は、3番目になるようにせよ。ただし、選択肢は、空欄に入れるべき文言だけにすること。",
+  'C':"問題は4択問題とし、問題はPythonプログラムの一部を空欄にし、その内容を問うものである。選択肢は、空欄に入れるべき文言だけにして、それ以外の文言は書かないようにすること。Pythonプログラムの中の空欄は明示するようにせよ。",
   'D':"Pythonプログラムの一部を空欄にし、その内容を問う4択問題を作成する。ただし問題文にはPythonプログラムは含まない。",
   'AE':"The questions are four-choice questions, and the questions ask for the content of a Python program, leaving a portion of the program blank.",
   'BE':"Create a four-choice question that leaves part of a Python program blank and asks what to put in the blank.",
