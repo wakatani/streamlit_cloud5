@@ -58,7 +58,7 @@ if lang=="Japanese":
 else:
   language="英語"
 
-AnsC = st.radio(label='★正解調整 (Answer control)',
+AnsC = st.radio(label='★正解調整 (Answer control)…正解が1に偏らないようにする調整',
                 options=('Yes', 'No'),
                 index=0,
                 horizontal=True,
