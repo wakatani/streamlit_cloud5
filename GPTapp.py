@@ -77,11 +77,11 @@ promptP = st.radio(label='★プロンプト',
 )
 
 prompt_texts={
-  'A':"問題は4択問題とし、問題はPythonプログラムの一部を空欄にし、その内容を問うものである。解答となる選択肢は、できるだけ1番目にならないようにせよ。",
+  'A':"",
   'B':"Pythonプログラムの一部を空欄にし、その内容を問う4択問題を作成する。",
   'C':"問題は4択問題とし、問題はPythonプログラムの一部を空欄にし、その内容を問うものである。選択肢は、空欄に入れるべき文言だけにして、それ以外の文言は書かないようにすること。Pythonプログラムの中の空欄は明示するようにせよ。",
   'D':"Pythonプログラムの一部を空欄にし、その内容を問う4択問題を作成する。ただし問題文にはPythonプログラムは含まない。",
-  'AE':"The questions are four-choice questions, and the questions ask for the content of a Python program, leaving a portion of the program blank.",
+  'AE':"",
   'BE':"Create a four-choice question that leaves part of a Python program blank and asks what to put in the blank.",
   'CE':"The question should be a four-choice question, and the question should show a Python program with a part of the program blank and ask what should be placed in the blank. However, the question text does not include the Python program.",
   'DE':"Create a four-choice question that leaves part of a Python program blank and asks what to put in the blank. However, do not include the Python program in the question text.",
@@ -148,6 +148,7 @@ if st.button('問題 (quiz)',type="primary"):
   prompt+="「{0}」を守ること。".format(probtype)
   prompt+="正解の選択肢以外の選択肢の文言は間違っているようにすること。"
   prompt+="言語は{0}を用いること。".format(language)
+  prompt+=prompt_texts[promptP]
 
 # "「{0}」の文章に関して、Pythonの4択問題を考えます。問題にはPythonコードの一部を穴埋めする問題とします。問題のPythonコードと問題文と、4個の選択肢の文言とその答の番号を示せ。選択肢の文言は選択肢の番号は不要である。また、Pythonコードは改行をつけること。また、Pythonコードではデータの初期化をすること。「{1}」を守ること。正解の選択肢以外の選択肢の文言は間違っているようにすること。{2}で。".format(explanation,probtype,language)}],
 
